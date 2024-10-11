@@ -39,7 +39,7 @@ public class SupplierRepository(DistrictDbContext districtDbContext)
     /// </summary>
     public Supplier Update(Supplier supplier)
     {
-        var newSupplier = districtDbContext.Supplier.Entry(supplier).Entity;
+        var newSupplier = districtDbContext.Supplier.Update(supplier).Entity;
         districtDbContext.SaveChanges();
         return newSupplier;
     }
