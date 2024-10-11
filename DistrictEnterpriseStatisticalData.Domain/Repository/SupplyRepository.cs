@@ -29,9 +29,9 @@ public class SupplyRepository(DistrictDbContext districtDbContext)
     /// </summary>
     public Supply Create(Supply supply)
     {
-        var newSupplier = districtDbContext.Supply.Add(supply);
+        var newSupply = districtDbContext.Supply.Add(supply);
         districtDbContext.SaveChanges();
-        return newSupplier.Entity;
+        return newSupply.Entity;
     }
 
     /// <summary>
