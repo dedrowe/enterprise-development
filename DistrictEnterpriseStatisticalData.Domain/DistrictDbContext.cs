@@ -15,8 +15,28 @@ public class DistrictDbContext(DbContextOptions<DistrictDbContext> options) : Db
     public DbSet<Supplier> Supplier { get; set; }
     public DbSet<Supply> Supply { get; set; }
 
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        base.OnModelCreating(modelBuilder);
+
+        modelBuilder.Entity<Enterprise>()
+            .Navigation(e => e.Type)
+            .AutoInclude();
+        modelBuilder.Entity<Enterprise>()
+            .Navigation(e => e.Form)
+            .AutoInclude();
+        
+        modelBuilder.Entity<Supply>()
+            .Navigation(s => s.Enterprise)
+            .AutoInclude();
+        modelBuilder.Entity<Supply>()
+            .Navigation(e => e.Supplier)
+            .AutoInclude();
+    }
+
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         optionsBuilder.UseLazyLoadingProxies();
+        
     }
 }
