@@ -11,7 +11,7 @@ public class EnterpriseCreateDto
     ///     Тип отрасли
     /// </summary>
     [JsonPropertyName("enterprise_type_id")]
-    public required int Type { get; set; }
+    public required int EnterpriseTypeId { get; set; }
 
     /// <summary>
     ///     Наименование

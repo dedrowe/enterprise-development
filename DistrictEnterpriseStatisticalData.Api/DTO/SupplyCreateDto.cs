@@ -23,7 +23,7 @@ public class SupplyCreateDto
     ///     Предприятие, которому осуществлялась поставка
     /// </summary>
     [JsonPropertyName("enterprise_registration_number")]
-    public required int EnterpriseId { get; set; }
+    public required int EnterpriseRegistrationNumber { get; set; }
 
     /// <summary>
     ///     Поставщик
