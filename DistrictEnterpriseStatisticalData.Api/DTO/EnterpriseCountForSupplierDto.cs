@@ -3,7 +3,7 @@
 namespace DistrictEnterpriseStatisticalData.Api.DTO;
 
 /// <summary>
-/// DTO для поличества предприятий для каждого поставщика
+/// DTO для количества предприятий для каждого поставщика
 /// </summary>
 public class EnterpriseCountForSupplierDto
 {
