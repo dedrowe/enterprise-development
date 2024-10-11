@@ -3,12 +3,12 @@
 namespace DistrictEnterpriseStatisticalData.Api.DTO;
 
 /// <summary>
-/// DTO для создания типа предприятия
+///     DTO для создания типа предприятия
 /// </summary>
 public class EnterpriseTypeCreateDto
 {
     /// <summary>
-    /// Тип предприятия
+    ///     Тип предприятия
     /// </summary>
     [JsonPropertyName("type")]
     public required string Type { get; set; }

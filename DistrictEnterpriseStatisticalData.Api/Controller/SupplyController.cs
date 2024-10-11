@@ -5,14 +5,14 @@ using Microsoft.AspNetCore.Mvc;
 namespace DistrictEnterpriseStatisticalData.Api.Controller;
 
 /// <summary>
-/// Контроллер поставок
+///     Контроллер поставок
 /// </summary>
 [Route("api/supply")]
 [ApiController]
-public class SupplyController(SupplyService service): ControllerBase
+public class SupplyController(SupplyService service) : ControllerBase
 {
     /// <summary>
-    /// Получение всех поставок
+    ///     Получение всех поставок
     /// </summary>
     [HttpGet]
     public ActionResult<IEnumerable<SupplyDto>> GetAll()
@@ -21,7 +21,7 @@ public class SupplyController(SupplyService service): ControllerBase
     }
 
     /// <summary>
-    /// Получение поставки по идентификатору
+    ///     Получение поставки по идентификатору
     /// </summary>
     [HttpGet("{id:int}")]
     public ActionResult<SupplyDto> Get(int id)
@@ -33,7 +33,7 @@ public class SupplyController(SupplyService service): ControllerBase
     }
 
     /// <summary>
-    /// Создание поставки
+    ///     Создание поставки
     /// </summary>
     [HttpPost]
     public ActionResult<SupplyDto> Post(SupplyCreateDto supplyDto)
@@ -42,7 +42,7 @@ public class SupplyController(SupplyService service): ControllerBase
     }
 
     /// <summary>
-    /// Обновление информации о поставке
+    ///     Обновление информации о поставке
     /// </summary>
     [HttpPut]
     public ActionResult<SupplyDto> Put(SupplyDto supplyDto)
@@ -51,7 +51,7 @@ public class SupplyController(SupplyService service): ControllerBase
     }
 
     /// <summary>
-    /// Удаление поставки
+    ///     Удаление поставки
     /// </summary>
     [HttpDelete("{id:int}")]
     public ActionResult<SupplyDto> Delete(int id)

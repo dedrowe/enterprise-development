@@ -6,12 +6,12 @@ using DistrictEnterpriseStatisticalData.Domain.Repository;
 namespace DistrictEnterpriseStatisticalData.Api.Service;
 
 /// <summary>
-/// Сервис для форм собственности
+///     Сервис для форм собственности
 /// </summary>
 public class FormOfOwnershipService(FormOfOwnershipRepository repository, IMapper mapper)
 {
     /// <summary>
-    /// Получение всех форм
+    ///     Получение всех форм
     /// </summary>
     public IEnumerable<FormOfOwnershipDto> GetAll()
     {
@@ -19,7 +19,7 @@ public class FormOfOwnershipService(FormOfOwnershipRepository repository, IMappe
     }
 
     /// <summary>
-    /// Получение формы по идентификатору
+    ///     Получение формы по идентификатору
     /// </summary>
     public FormOfOwnershipDto? GetById(int id)
     {
@@ -27,7 +27,7 @@ public class FormOfOwnershipService(FormOfOwnershipRepository repository, IMappe
     }
 
     /// <summary>
-    /// Создание формы
+    ///     Создание формы
     /// </summary>
     public FormOfOwnershipDto Create(FormOfOwnershipCreateDto enterprise)
     {
@@ -35,7 +35,7 @@ public class FormOfOwnershipService(FormOfOwnershipRepository repository, IMappe
     }
 
     /// <summary>
-    /// Обновление информации о форме
+    ///     Обновление информации о форме
     /// </summary>
     public FormOfOwnershipDto Update(FormOfOwnershipDto enterprise)
     {
@@ -43,7 +43,7 @@ public class FormOfOwnershipService(FormOfOwnershipRepository repository, IMappe
     }
 
     /// <summary>
-    /// Удаление форме
+    ///     Удаление форме
     /// </summary>
     public void Delete(int id)
     {

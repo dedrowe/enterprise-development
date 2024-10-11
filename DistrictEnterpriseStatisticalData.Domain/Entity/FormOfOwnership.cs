@@ -10,13 +10,13 @@ namespace DistrictEnterpriseStatisticalData.Domain.Entity;
 public class FormOfOwnership
 {
     /// <summary>
-    /// Идентификатор
+    ///     Идентификатор
     /// </summary>
-    [Key] 
+    [Key]
     public int Id { get; set; }
-    
+
     /// <summary>
-    /// Форма владения
+    ///     Форма владения
     /// </summary>
     [Column("form")]
     [MaxLength(50)]

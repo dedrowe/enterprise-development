@@ -5,15 +5,15 @@ using Microsoft.AspNetCore.Mvc;
 namespace DistrictEnterpriseStatisticalData.Api.Controller;
 
 /// <summary>
-/// Контроллер для предприятий
+///     Контроллер для предприятий
 /// </summary>
 /// <param name="service"></param>
 [Route("api/enterprise")]
 [ApiController]
-public class EnterpriseController(EnterpriseService service): ControllerBase
+public class EnterpriseController(EnterpriseService service) : ControllerBase
 {
     /// <summary>
-    /// Получение всех предприятий
+    ///     Получение всех предприятий
     /// </summary>
     [HttpGet]
     public ActionResult<IEnumerable<EnterpriseDto>> GetAll()
@@ -22,7 +22,7 @@ public class EnterpriseController(EnterpriseService service): ControllerBase
     }
 
     /// <summary>
-    /// Получение предприятия по регистрационному номеру
+    ///     Получение предприятия по регистрационному номеру
     /// </summary>
     [HttpGet("{id:int}")]
     public ActionResult<EnterpriseDto> Get(int id)
@@ -34,7 +34,7 @@ public class EnterpriseController(EnterpriseService service): ControllerBase
     }
 
     /// <summary>
-    /// Создание предприятия
+    ///     Создание предприятия
     /// </summary>
     [HttpPost]
     public ActionResult<EnterpriseDto> Post(EnterpriseCreateDto enterpriseDto)
@@ -43,7 +43,7 @@ public class EnterpriseController(EnterpriseService service): ControllerBase
     }
 
     /// <summary>
-    /// Обновление информации о предприятии
+    ///     Обновление информации о предприятии
     /// </summary>
     [HttpPut]
     public ActionResult<EnterpriseDto> Put(EnterpriseDto enterpriseDto)
@@ -52,7 +52,7 @@ public class EnterpriseController(EnterpriseService service): ControllerBase
     }
 
     /// <summary>
-    /// Удаление предприятия
+    ///     Удаление предприятия
     /// </summary>
     [HttpDelete("{id:int}")]
     public ActionResult<EnterpriseDto> Delete(int id)
@@ -62,7 +62,7 @@ public class EnterpriseController(EnterpriseService service): ControllerBase
     }
 
     /// <summary>
-    /// Получение топ 5 предприятий по количеству поставок
+    ///     Получение топ 5 предприятий по количеству поставок
     /// </summary>
     [HttpGet("five-most-supplied-enterprises")]
     public ActionResult<IEnumerable<EnterpriseDto>> GetFiveMostSuppliedEnterprises()

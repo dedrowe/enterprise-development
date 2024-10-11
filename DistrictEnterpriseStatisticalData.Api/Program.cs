@@ -17,7 +17,7 @@ builder.Services.AddSwaggerGen(opt =>
 
 builder.Services.AddAutoMapper(typeof(Mapper));
 
-builder.Services.AddDbContext<DistrictDbContext>(options => 
+builder.Services.AddDbContext<DistrictDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 builder.Services.AddControllers();

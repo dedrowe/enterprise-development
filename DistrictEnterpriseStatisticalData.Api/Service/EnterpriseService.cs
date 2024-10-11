@@ -6,12 +6,12 @@ using DistrictEnterpriseStatisticalData.Domain.Repository;
 namespace DistrictEnterpriseStatisticalData.Api.Service;
 
 /// <summary>
-/// Сервис для предприятий
+///     Сервис для предприятий
 /// </summary>
 public class EnterpriseService(EnterpriseRepository repository, IMapper mapper)
 {
     /// <summary>
-    /// Получение всех предприятий
+    ///     Получение всех предприятий
     /// </summary>
     public IEnumerable<EnterpriseDto> GetAll()
     {
@@ -19,7 +19,7 @@ public class EnterpriseService(EnterpriseRepository repository, IMapper mapper)
     }
 
     /// <summary>
-    /// Получение предприятия по регистрационному номеру
+    ///     Получение предприятия по регистрационному номеру
     /// </summary>
     public EnterpriseDto? GetByRegistrationNumber(int id)
     {
@@ -27,7 +27,7 @@ public class EnterpriseService(EnterpriseRepository repository, IMapper mapper)
     }
 
     /// <summary>
-    /// Создание предприятия
+    ///     Создание предприятия
     /// </summary>
     public EnterpriseDto Create(EnterpriseCreateDto enterprise)
     {
@@ -35,7 +35,7 @@ public class EnterpriseService(EnterpriseRepository repository, IMapper mapper)
     }
 
     /// <summary>
-    /// Обновление информации о предприятии
+    ///     Обновление информации о предприятии
     /// </summary>
     public EnterpriseDto Update(EnterpriseDto enterprise)
     {
@@ -43,7 +43,7 @@ public class EnterpriseService(EnterpriseRepository repository, IMapper mapper)
     }
 
     /// <summary>
-    /// Удаление предприятия
+    ///     Удаление предприятия
     /// </summary>
     public void Delete(int id)
     {
@@ -53,7 +53,7 @@ public class EnterpriseService(EnterpriseRepository repository, IMapper mapper)
     }
 
     /// <summary>
-    /// Получение топ 5 предприятий по количеству поставок
+    ///     Получение топ 5 предприятий по количеству поставок
     /// </summary>
     public IEnumerable<EnterpriseDto> FiveMostSuppliedEnterprises()
     {

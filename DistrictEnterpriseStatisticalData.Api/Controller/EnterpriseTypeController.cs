@@ -5,14 +5,14 @@ using Microsoft.AspNetCore.Mvc;
 namespace DistrictEnterpriseStatisticalData.Api.Controller;
 
 /// <summary>
-/// Контроллер для типов предприятий
+///     Контроллер для типов предприятий
 /// </summary>
 [Route("api/enterprise-type")]
 [ApiController]
-public class EnterpriseTypeController(EnterpriseTypeService service): ControllerBase
+public class EnterpriseTypeController(EnterpriseTypeService service) : ControllerBase
 {
     /// <summary>
-    /// Получение всех типов предприятий
+    ///     Получение всех типов предприятий
     /// </summary>
     [HttpGet]
     public ActionResult<IEnumerable<EnterpriseTypeDto>> GetAll()
@@ -21,7 +21,7 @@ public class EnterpriseTypeController(EnterpriseTypeService service): Controller
     }
 
     /// <summary>
-    /// Получение типа по идентификатору
+    ///     Получение типа по идентификатору
     /// </summary>
     [HttpGet("{id:int}")]
     public ActionResult<EnterpriseTypeDto> Get(int id)
@@ -33,7 +33,7 @@ public class EnterpriseTypeController(EnterpriseTypeService service): Controller
     }
 
     /// <summary>
-    /// Создание типа предприятия
+    ///     Создание типа предприятия
     /// </summary>
     [HttpPost]
     public ActionResult<EnterpriseTypeDto> Post(EnterpriseTypeCreateDto enterpriseTypeDto)
@@ -42,7 +42,7 @@ public class EnterpriseTypeController(EnterpriseTypeService service): Controller
     }
 
     /// <summary>
-    /// Обновление информации о типе предприятия
+    ///     Обновление информации о типе предприятия
     /// </summary>
     [HttpPut]
     public ActionResult<EnterpriseTypeDto> Put(EnterpriseTypeDto enterpriseTypeDto)
@@ -51,7 +51,7 @@ public class EnterpriseTypeController(EnterpriseTypeService service): Controller
     }
 
     /// <summary>
-    /// Удаление типа предприятия
+    ///     Удаление типа предприятия
     /// </summary>
     [HttpDelete("{id:int}")]
     public ActionResult<EnterpriseTypeDto> Delete(int id)

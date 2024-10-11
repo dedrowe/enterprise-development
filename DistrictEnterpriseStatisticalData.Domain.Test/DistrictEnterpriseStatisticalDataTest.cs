@@ -4,9 +4,8 @@ namespace DistrictEnterpriseStatisticalData.Domain.Test;
 
 public class DistrictEnterpriseStatisticalDataTest(TestDB testDb) : IClassFixture<TestDB>
 {
-    
     private readonly EnterpriseRepository _enterpriseRepository = testDb.EnterpriseRepository;
-    
+
     private readonly SupplierRepository _supplierRepository = testDb.SupplierRepository;
 
     [Fact]
@@ -41,7 +40,7 @@ public class DistrictEnterpriseStatisticalDataTest(TestDB testDb) : IClassFixtur
     public void ReturnEnterprisesCountForEachSupplier()
     {
         var suppliers = _supplierRepository.ReturnEnterprisesCountForEachSupplier().ToList();
-        
+
         Assert.Equal(2, suppliers[0].enterprisesCount);
         Assert.Equal(3, suppliers[1].enterprisesCount);
         Assert.Equal(2, suppliers[2].enterprisesCount);

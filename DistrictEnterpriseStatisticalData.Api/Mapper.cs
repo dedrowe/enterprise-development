@@ -5,9 +5,9 @@ using DistrictEnterpriseStatisticalData.Domain.Entity;
 namespace DistrictEnterpriseStatisticalData.Api;
 
 /// <summary>
-/// Класс для преобразование ДТО в энтити
+///     Класс для преобразование ДТО в энтити
 /// </summary>
-public class Mapper: Profile
+public class Mapper : Profile
 {
     public Mapper()
     {

@@ -10,17 +10,17 @@ namespace DistrictEnterpriseStatisticalData.Domain.Entity;
 public class EnterpriseType
 {
     /// <summary>
-    /// Идентификатор
+    ///     Идентификатор
     /// </summary>
-    [Key] 
+    [Key]
     public int Id { get; set; }
-    
+
     /// <summary>
-    /// Тип предприятия
+    ///     Тип предприятия
     /// </summary>
     [Column("type")]
     [MaxLength(50)]
     public required string Type { get; set; }
-    
+
     public virtual List<Enterprise> Enterprises { get; set; } = [];
 }

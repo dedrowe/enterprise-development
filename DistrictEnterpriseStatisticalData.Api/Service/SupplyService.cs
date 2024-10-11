@@ -6,12 +6,12 @@ using DistrictEnterpriseStatisticalData.Domain.Repository;
 namespace DistrictEnterpriseStatisticalData.Api.Service;
 
 /// <summary>
-/// Сервия для поставок
+///     Сервия для поставок
 /// </summary>
 public class SupplyService(SupplyRepository repository, IMapper mapper)
 {
     /// <summary>
-    /// Получение всех поставок
+    ///     Получение всех поставок
     /// </summary>
     public IEnumerable<SupplyDto> GetAll()
     {
@@ -19,7 +19,7 @@ public class SupplyService(SupplyRepository repository, IMapper mapper)
     }
 
     /// <summary>
-    /// Получение поставки по идентификатору
+    ///     Получение поставки по идентификатору
     /// </summary>
     public SupplyDto? GetById(int id)
     {
@@ -27,7 +27,7 @@ public class SupplyService(SupplyRepository repository, IMapper mapper)
     }
 
     /// <summary>
-    /// Создание поставки
+    ///     Создание поставки
     /// </summary>
     public SupplyDto Create(SupplyCreateDto enterprise)
     {
@@ -35,7 +35,7 @@ public class SupplyService(SupplyRepository repository, IMapper mapper)
     }
 
     /// <summary>
-    /// Обновление информации о поставке
+    ///     Обновление информации о поставке
     /// </summary>
     public SupplyDto Update(SupplyDto enterprise)
     {
@@ -43,7 +43,7 @@ public class SupplyService(SupplyRepository repository, IMapper mapper)
     }
 
     /// <summary>
-    /// Удаление поставки
+    ///     Удаление поставки
     /// </summary>
     public void Delete(int id)
     {

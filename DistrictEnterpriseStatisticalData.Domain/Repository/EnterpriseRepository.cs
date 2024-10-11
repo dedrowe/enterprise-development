@@ -1,15 +1,14 @@
 ﻿using DistrictEnterpriseStatisticalData.Domain.Entity;
-using Microsoft.EntityFrameworkCore;
 
 namespace DistrictEnterpriseStatisticalData.Domain.Repository;
 
 /// <summary>
-/// Класс для осуществления запросов к базе данных к таблице предприятий
+///     Класс для осуществления запросов к базе данных к таблице предприятий
 /// </summary>
 public class EnterpriseRepository(DistrictDbContext districtDbContext)
 {
     /// <summary>
-    /// Получение всех предприятий
+    ///     Получение всех предприятий
     /// </summary>
     public IEnumerable<Enterprise> GetAll()
     {
@@ -17,15 +16,15 @@ public class EnterpriseRepository(DistrictDbContext districtDbContext)
     }
 
     /// <summary>
-    /// Получение предприятия по регистрационному номеру
+    ///     Получение предприятия по регистрационному номеру
     /// </summary>
     public Enterprise? GetById(int id)
     {
         return districtDbContext.Enterprise.Find(id);
     }
-    
+
     /// <summary>
-    /// Создание предприятия
+    ///     Создание предприятия
     /// </summary>
     public Enterprise Create(Enterprise enterprise)
     {
@@ -35,7 +34,7 @@ public class EnterpriseRepository(DistrictDbContext districtDbContext)
     }
 
     /// <summary>
-    /// Обновление информации о предприятии
+    ///     Обновление информации о предприятии
     /// </summary>
     public Enterprise Update(Enterprise enterprise)
     {
@@ -45,7 +44,7 @@ public class EnterpriseRepository(DistrictDbContext districtDbContext)
     }
 
     /// <summary>
-    /// Удаление предприятия
+    ///     Удаление предприятия
     /// </summary>
     public void Delete(Enterprise enterprise)
     {
@@ -54,7 +53,7 @@ public class EnterpriseRepository(DistrictDbContext districtDbContext)
     }
 
     /// <summary>
-    /// Получение топ 5 предприятий по количеству поставок
+    ///     Получение топ 5 предприятий по количеству поставок
     /// </summary>
     public IEnumerable<Enterprise> FiveMostSuppliedEnterprises()
     {

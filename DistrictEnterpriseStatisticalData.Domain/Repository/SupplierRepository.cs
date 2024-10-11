@@ -1,15 +1,14 @@
 ﻿using DistrictEnterpriseStatisticalData.Domain.Entity;
-using Microsoft.EntityFrameworkCore;
 
 namespace DistrictEnterpriseStatisticalData.Domain.Repository;
 
 /// <summary>
-/// Класс для осуществления запросов к базе данных к таблице поставщиков
+///     Класс для осуществления запросов к базе данных к таблице поставщиков
 /// </summary>
 public class SupplierRepository(DistrictDbContext districtDbContext)
 {
     /// <summary>
-    /// Получение всех поставщиков
+    ///     Получение всех поставщиков
     /// </summary>
     public IEnumerable<Supplier> GetAll()
     {
@@ -17,7 +16,7 @@ public class SupplierRepository(DistrictDbContext districtDbContext)
     }
 
     /// <summary>
-    /// Получение поставщика по идентификатору
+    ///     Получение поставщика по идентификатору
     /// </summary>
     public Supplier? GetById(int id)
     {
@@ -25,7 +24,7 @@ public class SupplierRepository(DistrictDbContext districtDbContext)
     }
 
     /// <summary>
-    /// Создание поставщика
+    ///     Создание поставщика
     /// </summary>
     public Supplier Create(Supplier supplier)
     {
@@ -35,7 +34,7 @@ public class SupplierRepository(DistrictDbContext districtDbContext)
     }
 
     /// <summary>
-    /// Обновление информации о поставщике
+    ///     Обновление информации о поставщике
     /// </summary>
     public Supplier Update(Supplier supplier)
     {
@@ -45,7 +44,7 @@ public class SupplierRepository(DistrictDbContext districtDbContext)
     }
 
     /// <summary>
-    /// Удаление поставщика
+    ///     Удаление поставщика
     /// </summary>
     public void Delete(Supplier supplier)
     {
@@ -54,7 +53,7 @@ public class SupplierRepository(DistrictDbContext districtDbContext)
     }
 
     /// <summary>
-    /// Получение информации о всех поставщиках, поставивших сырье за заданных период, упорядоченных по названию
+    ///     Получение информации о всех поставщиках, поставивших сырье за заданных период, упорядоченных по названию
     /// </summary>
     public IEnumerable<Supplier> ReturnSupplyBetweenDates(DateOnly startDate, DateOnly endDate)
     {
@@ -65,7 +64,7 @@ public class SupplierRepository(DistrictDbContext districtDbContext)
     }
 
     /// <summary>
-    /// Получение информации о количестве предприятий, с которым работает каждый поставщик
+    ///     Получение информации о количестве предприятий, с которым работает каждый поставщик
     /// </summary>
     public IEnumerable<(Supplier supplier, int enterprisesCount)> ReturnEnterprisesCountForEachSupplier()
     {
@@ -79,11 +78,12 @@ public class SupplierRepository(DistrictDbContext districtDbContext)
             .AsEnumerable()
             .Select(supplier => (supplier.supplier, supplier.enterpriseCount));
     }
-    
+
     /// <summary>
-    /// Получение информации о количестве поставщиков для каждого типа отрасли и форме собственности
+    ///     Получение информации о количестве поставщиков для каждого типа отрасли и форме собственности
     /// </summary>
-    public IEnumerable<(FormOfOwnership form, EnterpriseType type, int supplierCount)> ReturnSuppliersCountForTypeAndForm()
+    public IEnumerable<(FormOfOwnership form, EnterpriseType type, int supplierCount)>
+        ReturnSuppliersCountForTypeAndForm()
     {
         return districtDbContext.Enterprise
             .Join(
@@ -102,8 +102,8 @@ public class SupplierRepository(DistrictDbContext districtDbContext)
             .GroupBy(e => new { e.Form, e.Type })
             .Select(group => new
             {
-                Form = group.Key.Form,
-                Type = group.Key.Type,
+                group.Key.Form,
+                group.Key.Type,
                 SupplierCount = group.SelectMany(e => e.Enterprise.Supplies.Select(s => s.Supplier)).Distinct().Count()
             })
             .AsEnumerable()
@@ -111,7 +111,7 @@ public class SupplierRepository(DistrictDbContext districtDbContext)
     }
 
     /// <summary>
-    /// Получение информации о поставщиках, поставивших максимальное количество товара за указанный период
+    ///     Получение информации о поставщиках, поставивших максимальное количество товара за указанный период
     /// </summary>
     public IEnumerable<Supplier> MaxProvidedSuppliers(DateOnly startDate, DateOnly endDate)
     {

@@ -3,7 +3,7 @@
 namespace DistrictEnterpriseStatisticalData.Api.DTO;
 
 /// <summary>
-/// DTO поставки
+///     DTO поставки
 /// </summary>
 public class SupplyDto
 {

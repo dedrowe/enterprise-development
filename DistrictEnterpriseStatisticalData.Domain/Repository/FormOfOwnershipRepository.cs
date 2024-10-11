@@ -1,15 +1,14 @@
 ﻿using DistrictEnterpriseStatisticalData.Domain.Entity;
-using Microsoft.EntityFrameworkCore;
 
 namespace DistrictEnterpriseStatisticalData.Domain.Repository;
 
 /// <summary>
-/// Класс для осуществления запросов к базе данных к таблице форм собственности
+///     Класс для осуществления запросов к базе данных к таблице форм собственности
 /// </summary>
 public class FormOfOwnershipRepository(DistrictDbContext districtDbContext)
 {
     /// <summary>
-    /// Получение всех форм
+    ///     Получение всех форм
     /// </summary>
     public IEnumerable<FormOfOwnership> GetAll()
     {
@@ -17,7 +16,7 @@ public class FormOfOwnershipRepository(DistrictDbContext districtDbContext)
     }
 
     /// <summary>
-    /// Получение формы по идентификатору
+    ///     Получение формы по идентификатору
     /// </summary>
     public FormOfOwnership? GetById(int id)
     {
@@ -25,7 +24,7 @@ public class FormOfOwnershipRepository(DistrictDbContext districtDbContext)
     }
 
     /// <summary>
-    /// Создание формы
+    ///     Создание формы
     /// </summary>
     public FormOfOwnership Create(FormOfOwnership form)
     {
@@ -35,7 +34,7 @@ public class FormOfOwnershipRepository(DistrictDbContext districtDbContext)
     }
 
     /// <summary>
-    /// Обновление информации о форме
+    ///     Обновление информации о форме
     /// </summary>
     public FormOfOwnership Update(FormOfOwnership form)
     {
@@ -45,7 +44,7 @@ public class FormOfOwnershipRepository(DistrictDbContext districtDbContext)
     }
 
     /// <summary>
-    /// Удаление форме
+    ///     Удаление форме
     /// </summary>
     public void Delete(FormOfOwnership form)
     {

@@ -1,15 +1,14 @@
 ﻿using DistrictEnterpriseStatisticalData.Domain.Entity;
-using Microsoft.EntityFrameworkCore;
 
 namespace DistrictEnterpriseStatisticalData.Domain.Repository;
 
 /// <summary>
-/// Класс для осуществления запросов к базе данных к таблице типов предприятий
+///     Класс для осуществления запросов к базе данных к таблице типов предприятий
 /// </summary>
 public class EnterpriseTypeRepository(DistrictDbContext districtDbContext)
 {
     /// <summary>
-    /// Получение всех типов предприятий
+    ///     Получение всех типов предприятий
     /// </summary>
     public IEnumerable<EnterpriseType> GetAll()
     {
@@ -17,7 +16,7 @@ public class EnterpriseTypeRepository(DistrictDbContext districtDbContext)
     }
 
     /// <summary>
-    /// Получение типа по идентификатору
+    ///     Получение типа по идентификатору
     /// </summary>
     public EnterpriseType? GetById(int id)
     {
@@ -25,7 +24,7 @@ public class EnterpriseTypeRepository(DistrictDbContext districtDbContext)
     }
 
     /// <summary>
-    /// Создание типа предприятия
+    ///     Создание типа предприятия
     /// </summary>
     public EnterpriseType Create(EnterpriseType type)
     {
@@ -35,7 +34,7 @@ public class EnterpriseTypeRepository(DistrictDbContext districtDbContext)
     }
 
     /// <summary>
-    /// Обновление информации о типе предприятия
+    ///     Обновление информации о типе предприятия
     /// </summary>
     public EnterpriseType Update(EnterpriseType type)
     {
@@ -45,7 +44,7 @@ public class EnterpriseTypeRepository(DistrictDbContext districtDbContext)
     }
 
     /// <summary>
-    /// Удаление типа предприятия
+    ///     Удаление типа предприятия
     /// </summary>
     public void Delete(EnterpriseType type)
     {

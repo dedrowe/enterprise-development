@@ -6,12 +6,12 @@ using DistrictEnterpriseStatisticalData.Domain.Repository;
 namespace DistrictEnterpriseStatisticalData.Api.Service;
 
 /// <summary>
-/// Сервис для поставщиков
+///     Сервис для поставщиков
 /// </summary>
 public class SupplierService(SupplierRepository repository, IMapper mapper)
 {
     /// <summary>
-    /// Получение всех поставщиков
+    ///     Получение всех поставщиков
     /// </summary>
     public IEnumerable<SupplierDto> GetAll()
     {
@@ -19,7 +19,7 @@ public class SupplierService(SupplierRepository repository, IMapper mapper)
     }
 
     /// <summary>
-    /// Получение поставщика по идентификатору
+    ///     Получение поставщика по идентификатору
     /// </summary>
     public SupplierDto? GetById(int id)
     {
@@ -27,7 +27,7 @@ public class SupplierService(SupplierRepository repository, IMapper mapper)
     }
 
     /// <summary>
-    /// Создание поставщика
+    ///     Создание поставщика
     /// </summary>
     public SupplierDto Create(SupplierCreateDto enterprise)
     {
@@ -35,7 +35,7 @@ public class SupplierService(SupplierRepository repository, IMapper mapper)
     }
 
     /// <summary>
-    /// Обновление информации о поставщике
+    ///     Обновление информации о поставщике
     /// </summary>
     public SupplierDto Update(SupplierDto enterprise)
     {
@@ -43,7 +43,7 @@ public class SupplierService(SupplierRepository repository, IMapper mapper)
     }
 
     /// <summary>
-    /// Удаление поставщика
+    ///     Удаление поставщика
     /// </summary>
     public void Delete(int id)
     {
@@ -53,7 +53,7 @@ public class SupplierService(SupplierRepository repository, IMapper mapper)
     }
 
     /// <summary>
-    /// Получение информации о всех поставщиках, поставивших сырье за заданных период, упорядоченных по названию
+    ///     Получение информации о всех поставщиках, поставивших сырье за заданных период, упорядоченных по названию
     /// </summary>
     public IEnumerable<SupplierDto> ReturnSupplyBetweenDates(DateOnly startDate, DateOnly endDate)
     {
@@ -61,7 +61,7 @@ public class SupplierService(SupplierRepository repository, IMapper mapper)
     }
 
     /// <summary>
-    /// Получение информации о количестве предприятий, с которым работает каждый поставщик
+    ///     Получение информации о количестве предприятий, с которым работает каждый поставщик
     /// </summary>
     public IEnumerable<EnterpriseCountForSupplierDto> ReturnEnterprisesCountForEachSupplier()
     {
@@ -74,7 +74,7 @@ public class SupplierService(SupplierRepository repository, IMapper mapper)
     }
 
     /// <summary>
-    /// Получение информации о количестве поставщиков для каждого типа отрасли и форме собственности
+    ///     Получение информации о количестве поставщиков для каждого типа отрасли и форме собственности
     /// </summary>
     public IEnumerable<SupplierCountForTypeAndFormDto> ReturnSuppliersCountForTypeAndForm()
     {
@@ -88,7 +88,7 @@ public class SupplierService(SupplierRepository repository, IMapper mapper)
     }
 
     /// <summary>
-    /// Получение информации о поставщиках, поставивших максимальное количество товара за указанный период
+    ///     Получение информации о поставщиках, поставивших максимальное количество товара за указанный период
     /// </summary>
     public IEnumerable<SupplierDto> MaxProvidedSuppliers(DateOnly startDate, DateOnly endDate)
     {

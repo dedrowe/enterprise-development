@@ -1,15 +1,14 @@
 ﻿using DistrictEnterpriseStatisticalData.Domain.Entity;
-using Microsoft.EntityFrameworkCore;
 
 namespace DistrictEnterpriseStatisticalData.Domain.Repository;
 
 /// <summary>
-/// Класс для осуществления запросов к базе данных к таблице поставок
+///     Класс для осуществления запросов к базе данных к таблице поставок
 /// </summary>
 public class SupplyRepository(DistrictDbContext districtDbContext)
 {
     /// <summary>
-    /// Получение всех поставок
+    ///     Получение всех поставок
     /// </summary>
     public IEnumerable<Supply> GetAll()
     {
@@ -17,7 +16,7 @@ public class SupplyRepository(DistrictDbContext districtDbContext)
     }
 
     /// <summary>
-    /// Получение поставки по идентификатору
+    ///     Получение поставки по идентификатору
     /// </summary>
     public Supply? GetById(int id)
     {
@@ -25,7 +24,7 @@ public class SupplyRepository(DistrictDbContext districtDbContext)
     }
 
     /// <summary>
-    /// Создание поставки
+    ///     Создание поставки
     /// </summary>
     public Supply Create(Supply supply)
     {
@@ -35,7 +34,7 @@ public class SupplyRepository(DistrictDbContext districtDbContext)
     }
 
     /// <summary>
-    /// Обновление информации о поставке
+    ///     Обновление информации о поставке
     /// </summary>
     public Supply Update(Supply supply)
     {
@@ -45,7 +44,7 @@ public class SupplyRepository(DistrictDbContext districtDbContext)
     }
 
     /// <summary>
-    /// Удаление поставки
+    ///     Удаление поставки
     /// </summary>
     public void Delete(Supply supply)
     {

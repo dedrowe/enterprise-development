@@ -4,89 +4,6 @@ namespace DistrictEnterpriseStatisticalData.Domain.Test;
 
 public class DataProvider
 {
-    public List<EnterpriseType> EnterpriseTypes =
-    [
-        new() { Type = "Agriculture" },
-        new() { Type = "Transport" },
-        new() { Type = "LightIndustry" },
-        new() { Type = "HeavyIndustry" },
-        new() { Type = "Building" },
-        new() { Type = "MaterialAndTechnicalSupply" },
-    ];
-
-    public List<FormOfOwnership> FormsOfOwnership =
-    [
-        new() { Form = "StateFederal" },
-        new() { Form = "MunicipalUrban" },
-        new() { Form = "TOO" },
-        new() { Form = "Private" },
-        new() { Form = "JointStock" },
-    ];
-
-    public List<Supply> Supplies =
-    [
-        new()
-        {
-            EnterpriseRegistrationNumber = 0, SupplierId = 0, Quantity = 1,
-            Date = DateOnly.ParseExact("2020-01-01", "yyyy-mm-dd")
-        },
-        new()
-        {
-            EnterpriseRegistrationNumber = 0, SupplierId = 4, Quantity = 1,
-            Date = DateOnly.ParseExact("2020-01-01", "yyyy-mm-dd")
-        },
-        new()
-        {
-            EnterpriseRegistrationNumber = 1, SupplierId = 0, Quantity = 1,
-            Date = DateOnly.ParseExact("2020-01-01", "yyyy-mm-dd")
-        },
-        new()
-        {
-            EnterpriseRegistrationNumber = 1, SupplierId = 1, Quantity = 1,
-            Date = DateOnly.ParseExact("2020-01-01", "yyyy-mm-dd")
-        },
-        new()
-        {
-            EnterpriseRegistrationNumber = 1, SupplierId = 2, Quantity = 1,
-            Date = DateOnly.ParseExact("2020-01-01", "yyyy-mm-dd")
-        },
-        new()
-        {
-            EnterpriseRegistrationNumber = 1, SupplierId = 3, Quantity = 1,
-            Date = DateOnly.ParseExact("2020-01-01", "yyyy-mm-dd")
-        },
-        new()
-        {
-            EnterpriseRegistrationNumber = 1, SupplierId = 4, Quantity = 1,
-            Date = DateOnly.ParseExact("2020-01-01", "yyyy-mm-dd")
-        },
-        new()
-        {
-            EnterpriseRegistrationNumber = 5, SupplierId = 1, Quantity = 1,
-            Date = DateOnly.ParseExact("2020-01-01", "yyyy-mm-dd")
-        },
-        new()
-        {
-            EnterpriseRegistrationNumber = 6, SupplierId = 1, Quantity = 1,
-            Date = DateOnly.ParseExact("2020-01-01", "yyyy-mm-dd")
-        },
-        new()
-        {
-            EnterpriseRegistrationNumber = 7, SupplierId = 2, Quantity = 1,
-            Date = DateOnly.ParseExact("2021-01-01", "yyyy-mm-dd")
-        },
-        new()
-        {
-            EnterpriseRegistrationNumber = 8, SupplierId = 3, Quantity = 1,
-            Date = DateOnly.ParseExact("2021-01-01", "yyyy-mm-dd")
-        },
-        new()
-        {
-            EnterpriseRegistrationNumber = 9, SupplierId = 4, Quantity = 1,
-            Date = DateOnly.ParseExact("2022-01-01", "yyyy-mm-dd")
-        },
-    ];
-
     public List<Enterprise> Enterprises =
     [
         new()
@@ -191,6 +108,25 @@ public class DataProvider
         }
     ];
 
+    public List<EnterpriseType> EnterpriseTypes =
+    [
+        new() { Type = "Agriculture" },
+        new() { Type = "Transport" },
+        new() { Type = "LightIndustry" },
+        new() { Type = "HeavyIndustry" },
+        new() { Type = "Building" },
+        new() { Type = "MaterialAndTechnicalSupply" }
+    ];
+
+    public List<FormOfOwnership> FormsOfOwnership =
+    [
+        new() { Form = "StateFederal" },
+        new() { Form = "MunicipalUrban" },
+        new() { Form = "TOO" },
+        new() { Form = "Private" },
+        new() { Form = "JointStock" }
+    ];
+
     public List<Supplier> Suppliers =
     [
         new() { Name = "Supplier 0" },
@@ -198,6 +134,70 @@ public class DataProvider
         new() { Name = "Supplier 2" },
         new() { Name = "Supplier 3" },
         new() { Name = "Supplier 4" }
+    ];
+
+    public List<Supply> Supplies =
+    [
+        new()
+        {
+            EnterpriseRegistrationNumber = 0, SupplierId = 0, Quantity = 1,
+            Date = DateOnly.ParseExact("2020-01-01", "yyyy-mm-dd")
+        },
+        new()
+        {
+            EnterpriseRegistrationNumber = 0, SupplierId = 4, Quantity = 1,
+            Date = DateOnly.ParseExact("2020-01-01", "yyyy-mm-dd")
+        },
+        new()
+        {
+            EnterpriseRegistrationNumber = 1, SupplierId = 0, Quantity = 1,
+            Date = DateOnly.ParseExact("2020-01-01", "yyyy-mm-dd")
+        },
+        new()
+        {
+            EnterpriseRegistrationNumber = 1, SupplierId = 1, Quantity = 1,
+            Date = DateOnly.ParseExact("2020-01-01", "yyyy-mm-dd")
+        },
+        new()
+        {
+            EnterpriseRegistrationNumber = 1, SupplierId = 2, Quantity = 1,
+            Date = DateOnly.ParseExact("2020-01-01", "yyyy-mm-dd")
+        },
+        new()
+        {
+            EnterpriseRegistrationNumber = 1, SupplierId = 3, Quantity = 1,
+            Date = DateOnly.ParseExact("2020-01-01", "yyyy-mm-dd")
+        },
+        new()
+        {
+            EnterpriseRegistrationNumber = 1, SupplierId = 4, Quantity = 1,
+            Date = DateOnly.ParseExact("2020-01-01", "yyyy-mm-dd")
+        },
+        new()
+        {
+            EnterpriseRegistrationNumber = 5, SupplierId = 1, Quantity = 1,
+            Date = DateOnly.ParseExact("2020-01-01", "yyyy-mm-dd")
+        },
+        new()
+        {
+            EnterpriseRegistrationNumber = 6, SupplierId = 1, Quantity = 1,
+            Date = DateOnly.ParseExact("2020-01-01", "yyyy-mm-dd")
+        },
+        new()
+        {
+            EnterpriseRegistrationNumber = 7, SupplierId = 2, Quantity = 1,
+            Date = DateOnly.ParseExact("2021-01-01", "yyyy-mm-dd")
+        },
+        new()
+        {
+            EnterpriseRegistrationNumber = 8, SupplierId = 3, Quantity = 1,
+            Date = DateOnly.ParseExact("2021-01-01", "yyyy-mm-dd")
+        },
+        new()
+        {
+            EnterpriseRegistrationNumber = 9, SupplierId = 4, Quantity = 1,
+            Date = DateOnly.ParseExact("2022-01-01", "yyyy-mm-dd")
+        }
     ];
 
 
@@ -233,7 +233,7 @@ public class DataProvider
         Enterprises[0].Supplies = [Supplies[0], Supplies[1]];
         Enterprises[1].Type = EnterpriseTypes[0];
         Enterprises[1].Form = FormsOfOwnership[4];
-        Enterprises[1].Supplies = [Supplies[2], Supplies[3], Supplies[4], Supplies[5],  Supplies[6]];
+        Enterprises[1].Supplies = [Supplies[2], Supplies[3], Supplies[4], Supplies[5], Supplies[6]];
         Enterprises[2].Type = EnterpriseTypes[3];
         Enterprises[2].Form = FormsOfOwnership[1];
         Enterprises[3].Type = EnterpriseTypes[3];
@@ -255,7 +255,7 @@ public class DataProvider
         Enterprises[9].Type = EnterpriseTypes[2];
         Enterprises[9].Form = FormsOfOwnership[2];
         Enterprises[9].Supplies = [Supplies[11]];
-        
+
         Suppliers[0].Supplies = [Supplies[0], Supplies[2]];
         Suppliers[1].Supplies = [Supplies[3], Supplies[7], Supplies[8]];
         Suppliers[2].Supplies = [Supplies[4], Supplies[9]];

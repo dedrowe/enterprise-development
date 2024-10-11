@@ -6,12 +6,12 @@ using DistrictEnterpriseStatisticalData.Domain.Repository;
 namespace DistrictEnterpriseStatisticalData.Api.Service;
 
 /// <summary>
-/// Сервис для типов предприятий
+///     Сервис для типов предприятий
 /// </summary>
 public class EnterpriseTypeService(EnterpriseTypeRepository repository, IMapper mapper)
 {
     /// <summary>
-    /// Получение всех типов предприятий
+    ///     Получение всех типов предприятий
     /// </summary>
     public IEnumerable<EnterpriseTypeDto> GetAll()
     {
@@ -19,7 +19,7 @@ public class EnterpriseTypeService(EnterpriseTypeRepository repository, IMapper 
     }
 
     /// <summary>
-    /// Получение типа по идентификатору
+    ///     Получение типа по идентификатору
     /// </summary>
     public EnterpriseTypeDto? GetById(int id)
     {
@@ -27,16 +27,16 @@ public class EnterpriseTypeService(EnterpriseTypeRepository repository, IMapper 
     }
 
     /// <summary>
-    /// Создание типа предприятия
+    ///     Создание типа предприятия
     /// </summary>
     public EnterpriseTypeDto Create(EnterpriseTypeCreateDto enterprise)
     {
         return mapper.Map<EnterpriseTypeDto>(repository.Create(mapper.Map<EnterpriseType>(enterprise)));
     }
 
-    
+
     /// <summary>
-    /// Обновление информации о типе предприятия
+    ///     Обновление информации о типе предприятия
     /// </summary>
     public EnterpriseTypeDto Update(EnterpriseTypeDto enterprise)
     {
@@ -44,7 +44,7 @@ public class EnterpriseTypeService(EnterpriseTypeRepository repository, IMapper 
     }
 
     /// <summary>
-    /// Удаление типа предприятия
+    ///     Удаление типа предприятия
     /// </summary>
     public void Delete(int id)
     {

@@ -5,14 +5,14 @@ using Microsoft.AspNetCore.Mvc;
 namespace DistrictEnterpriseStatisticalData.Api.Controller;
 
 /// <summary>
-/// Контроллер для поставщиков
+///     Контроллер для поставщиков
 /// </summary>
 [Route("api/supplier")]
 [ApiController]
-public class SupplierController(SupplierService service): ControllerBase
+public class SupplierController(SupplierService service) : ControllerBase
 {
     /// <summary>
-    /// Получение всех поставщиков
+    ///     Получение всех поставщиков
     /// </summary>
     [HttpGet]
     public ActionResult<IEnumerable<SupplierDto>> GetAll()
@@ -21,7 +21,7 @@ public class SupplierController(SupplierService service): ControllerBase
     }
 
     /// <summary>
-    /// Получение поставщика по идентификатору
+    ///     Получение поставщика по идентификатору
     /// </summary>
     [HttpGet("{id:int}")]
     public ActionResult<SupplierDto> Get(int id)
@@ -33,7 +33,7 @@ public class SupplierController(SupplierService service): ControllerBase
     }
 
     /// <summary>
-    /// Создание поставщика
+    ///     Создание поставщика
     /// </summary>
     [HttpPost]
     public ActionResult<SupplierDto> Post(SupplierCreateDto supplierDto)
@@ -42,7 +42,7 @@ public class SupplierController(SupplierService service): ControllerBase
     }
 
     /// <summary>
-    /// Обновление информации о поставщике
+    ///     Обновление информации о поставщике
     /// </summary>
     [HttpPut]
     public ActionResult<SupplierDto> Put(SupplierDto supplierDto)
@@ -51,7 +51,7 @@ public class SupplierController(SupplierService service): ControllerBase
     }
 
     /// <summary>
-    /// Удаление поставщика
+    ///     Удаление поставщика
     /// </summary>
     [HttpDelete("{id:int}")]
     public ActionResult<SupplierDto> Delete(int id)
@@ -61,7 +61,7 @@ public class SupplierController(SupplierService service): ControllerBase
     }
 
     /// <summary>
-    /// Получение информации о всех поставщиках, поставивших сырье за заданных период, упорядоченных по названию
+    ///     Получение информации о всех поставщиках, поставивших сырье за заданных период, упорядоченных по названию
     /// </summary>
     [HttpGet("supply-between-dates")]
     public ActionResult<IEnumerable<SupplierDto>> GetSupplierBetweenDates(DateOnly startDate, DateOnly endDate)
@@ -70,7 +70,7 @@ public class SupplierController(SupplierService service): ControllerBase
     }
 
     /// <summary>
-    /// Получение информации о количестве предприятий, с которым работает каждый поставщик
+    ///     Получение информации о количестве предприятий, с которым работает каждый поставщик
     /// </summary>
     [HttpGet("enterprise-count-for-each-supplier")]
     public ActionResult<IEnumerable<EnterpriseCountForSupplierDto>> GetEnterpriseCountForSupplier()
@@ -79,7 +79,7 @@ public class SupplierController(SupplierService service): ControllerBase
     }
 
     /// <summary>
-    /// Получение информации о количестве поставщиков для каждого типа отрасли и форме собственности
+    ///     Получение информации о количестве поставщиков для каждого типа отрасли и форме собственности
     /// </summary>
     [HttpGet("suppliers-count-for-type-and-form")]
     public ActionResult<IEnumerable<SupplierCountForTypeAndFormDto>> GetSupplierCountForTypeAndForm()
@@ -88,7 +88,7 @@ public class SupplierController(SupplierService service): ControllerBase
     }
 
     /// <summary>
-    /// Получение информации о поставщиках, поставивших максимальное количество товара за указанный период
+    ///     Получение информации о поставщиках, поставивших максимальное количество товара за указанный период
     /// </summary>
     [HttpGet("max-provided-suppliers")]
     public ActionResult<IEnumerable<SupplierDto>> GetMaxProvidedSuppliers(DateOnly startDate, DateOnly endDate)

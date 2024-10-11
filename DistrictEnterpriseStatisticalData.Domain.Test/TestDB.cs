@@ -7,29 +7,15 @@ namespace DistrictEnterpriseStatisticalData.Domain.Test;
 
 public class TestDB : IAsyncLifetime
 {
-    private DistrictDbContext Context { get; set; } = null!;
-    
-    public EnterpriseRepository EnterpriseRepository { get; set; } = null!;
-    
-    public EnterpriseTypeRepository EnterpriseTypeRepository { get; set; } = null!;
-    
-    public FormOfOwnershipRepository FormOfOwnershipRepository { get; set; } = null!;
-    
-    public SupplierRepository SupplierRepository { get; set; } = null!;
-    
-    public SupplyRepository SupplyRepository { get; set; } = null!;
-    
     private const string Name = "TestDB";
-    
+
     private const string Username = "user";
-    
+
     private const string Password = "password";
-    
+
     private const int Port = 5432;
-    
-    public DataProvider DataProvider { get; set; } = null!;
-    
-    private PostgreSqlContainer _container = new PostgreSqlBuilder()
+
+    private readonly PostgreSqlContainer _container = new PostgreSqlBuilder()
         .WithExposedPort(Port)
         .WithPortBinding(Port, true)
         .WithDatabase(Name)
@@ -38,6 +24,20 @@ public class TestDB : IAsyncLifetime
         .WithWaitStrategy(Wait.ForUnixContainer().UntilPortIsAvailable(Port))
         .Build();
 
+    private DistrictDbContext Context { get; set; } = null!;
+
+    public EnterpriseRepository EnterpriseRepository { get; set; } = null!;
+
+    public EnterpriseTypeRepository EnterpriseTypeRepository { get; set; } = null!;
+
+    public FormOfOwnershipRepository FormOfOwnershipRepository { get; set; } = null!;
+
+    public SupplierRepository SupplierRepository { get; set; } = null!;
+
+    public SupplyRepository SupplyRepository { get; set; } = null!;
+
+    public DataProvider DataProvider { get; set; } = null!;
+
     public async Task InitializeAsync()
     {
         await _container.StartAsync();
@@ -45,14 +45,14 @@ public class TestDB : IAsyncLifetime
             .UseNpgsql(_container.GetConnectionString())
             .Options);
         await Context.Database.EnsureCreatedAsync();
-        
+
         EnterpriseRepository = new EnterpriseRepository(Context);
         EnterpriseTypeRepository = new EnterpriseTypeRepository(Context);
         FormOfOwnershipRepository = new FormOfOwnershipRepository(Context);
         SupplierRepository = new SupplierRepository(Context);
         SupplyRepository = new SupplyRepository(Context);
         DataProvider = new DataProvider();
-        
+
         Context.EnterpriseType.AddRange(DataProvider.EnterpriseTypes);
         Context.Enterprise.AddRange(DataProvider.Enterprises);
         Context.FormOfOwnership.AddRange(DataProvider.FormsOfOwnership);

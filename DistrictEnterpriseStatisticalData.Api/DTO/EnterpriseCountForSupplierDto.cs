@@ -3,19 +3,19 @@
 namespace DistrictEnterpriseStatisticalData.Api.DTO;
 
 /// <summary>
-/// DTO для количества предприятий для каждого поставщика
+///     DTO для количества предприятий для каждого поставщика
 /// </summary>
 public class EnterpriseCountForSupplierDto
 {
     /// <summary>
-    /// Поставщик
+    ///     Поставщик
     /// </summary>
-    [JsonPropertyName(("supplier"))]
+    [JsonPropertyName("supplier")]
     public required SupplierDto Supplier { get; set; }
-    
+
     /// <summary>
-    /// Количество предприятий
+    ///     Количество предприятий
     /// </summary>
-    [JsonPropertyName(("enterprise_count"))]
+    [JsonPropertyName("enterprise_count")]
     public required int EnterpriseCount { get; set; }
 }
