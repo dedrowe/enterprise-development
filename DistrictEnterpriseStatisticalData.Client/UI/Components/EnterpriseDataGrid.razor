@@ -1,0 +1,110 @@
+﻿@using DistrictEnterpriseStatisticalData.Dto.DTO
+@inject ApiClientWrapper ApiClient
+@inject NavigationManager NavManager
+
+<Card>
+    <CardHeader>
+        <Row Class="justify-content-between">
+            <Column ColumnSize="ColumnSize.IsAuto">
+                <h4>
+                    Предприятия
+                </h4>
+            </Column>
+            <Column ColumnSize="ColumnSize.IsAuto">
+                <Button Color="Color.Primary" Clicked="OpenCreateModal">
+                    Создать
+                </Button>
+            </Column>
+
+        </Row>
+    </CardHeader>
+    <CardBody>
+        <DataGrid TItem="EnterpriseDto" Data="Enterprises" Responsive Striped>
+            <DataGridColumns>
+                <DataGridColumn Width="150px" TItem="EnterpriseDto" Field="@nameof(EnterpriseDto.RegistrationNumber)"
+                                Caption="Действия">
+                    <DisplayTemplate>
+                        <Dropdown>
+                            <DropdownToggle Color="Color.Primary">
+                                Действия
+                            </DropdownToggle>
+                            <DropdownMenu>
+                                <DropdownItem Clicked="() => OpenEditPageAsync(context)">
+                                    Редактировать
+                                </DropdownItem>
+                                <DropdownItem Clicked="() => DeleteEnterpriseAsync(context)">
+                                    Удалить
+                                </DropdownItem>
+                            </DropdownMenu>
+                        </Dropdown>
+                    </DisplayTemplate>
+                </DataGridColumn>
+                <DataGridColumn TItem="EnterpriseDto" Field="@nameof(EnterpriseDto.Name)" Caption="Наименование">
+                </DataGridColumn>
+                <DataGridColumn TItem="EnterpriseDto" Field="@nameof(EnterpriseDto.TypeName)"
+                                Caption="Тип отрасли">
+                </DataGridColumn>
+                <DataGridColumn TItem="EnterpriseDto" Field="@nameof(EnterpriseDto.Address)" Caption="Адрес">
+                </DataGridColumn>
+                <DataGridColumn TItem="EnterpriseDto" Field="@nameof(EnterpriseDto.PhoneNumber)" Caption="Телефон">
+                </DataGridColumn>
+                <DataGridColumn TItem="EnterpriseDto" Field="@nameof(EnterpriseDto.FormName)"
+                                Caption="Форма собственности">
+                </DataGridColumn>
+                <DataGridColumn TItem="EnterpriseDto" Field="@nameof(EnterpriseDto.EmployeesNumber)"
+                                Caption="Количество работников">
+                </DataGridColumn>
+                <DataGridColumn TItem="EnterpriseDto" Field="@nameof(EnterpriseDto.TotalArea)" Caption="Общая площадь">
+                </DataGridColumn>
+            </DataGridColumns>
+        </DataGrid>
+    </CardBody>
+</Card>
+
+<EnterpriseCreateModal @ref="EnterpriseModal" OnEnterpriseAdded="@HandleEnterpriseAdded"/>
+
+@code {
+    [Parameter] public EventCallback OnDataChanged { get; set; }
+
+    private ICollection<EnterpriseDto> Enterprises { get; set; } = [];
+
+    private EnterpriseCreateModal EnterpriseModal { get; set; } = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        await RefreshEnterpriseCollection();
+        await base.OnInitializedAsync();
+    }
+
+    private async Task OpenCreateModal()
+    {
+        await EnterpriseModal.Show();
+    }
+
+    private async Task HandleEnterpriseAdded()
+    {
+        await RefreshEnterpriseCollection();
+        await OnDataChanged.InvokeAsync();
+    }
+
+    private async Task RefreshEnterpriseCollection()
+    {
+        foreach (var i in (await ApiClient.GetAllEnterprises()).ToList())
+        {
+            Enterprises = await ApiClient.GetAllEnterprises();
+        }
+    }
+
+    private void OpenEditPageAsync(EnterpriseDto enterprise)
+    {
+        NavManager.NavigateTo($"enterprise/{enterprise.RegistrationNumber}");
+    }
+
+    private async Task DeleteEnterpriseAsync(EnterpriseDto enterprise)
+    {
+        await ApiClient.DeleteEnterprise(enterprise.RegistrationNumber);
+        await RefreshEnterpriseCollection();
+        await OnDataChanged.InvokeAsync();
+    }
+
+}

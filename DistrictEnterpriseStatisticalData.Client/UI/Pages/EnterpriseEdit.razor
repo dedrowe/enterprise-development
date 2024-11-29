@@ -1,0 +1,104 @@
+﻿@page "/enterprise/{Id}"
+@using DistrictEnterpriseStatisticalData.Dto.DTO
+@inject ApiClientWrapper ApiClient
+@inject IJSRuntime JsRuntime
+
+<EditForm Model="@UpdatedEnterprise" OnValidSubmit="UpdateEnterpriseAsync">
+    <DataAnnotationsValidator/>
+    <Microsoft.AspNetCore.Components.Forms.ValidationSummary/>
+    <Card>
+        <CardHeader>
+            <Row Class="justify-content-between">
+                <Column ColumnSize="ColumnSize.IsAuto">
+                    <h4>Изменить предприятие</h4>
+                </Column>
+                <Column ColumnSize="ColumnSize.IsAuto">
+                    <Button Color="Color.Primary" Type="ButtonType.Submit">Сохранить</Button>
+                    <Button Color="Color.Danger" Clicked="DeleteEnterpriseAsync">Удалить</Button>
+                    <Button Color="Color.Secondary" onclick="history.back();">Закрыть</Button>
+                </Column>
+            </Row>
+        </CardHeader>
+        <CardBody>
+            <Field>
+                <FieldLabel>Идентификатор типа предприятия</FieldLabel>
+                <NumericEdit @bind-Value="@TypeId"/>
+            </Field>
+            <Field>
+                <FieldLabel>Название предприятия</FieldLabel>
+                <TextEdit @bind-Text="@UpdatedEnterprise.Name"/>
+            </Field>
+            <Field>
+                <FieldLabel>Адрес</FieldLabel>
+                <TextEdit @bind-Text="@UpdatedEnterprise.Address"/>
+            </Field>
+            <Field>
+                <FieldLabel>Номер телефона</FieldLabel>
+                <Validation UsePattern>
+                    <TextEdit @bind-Text="@UpdatedEnterprise.PhoneNumber"
+                              Pattern="^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$">
+                        <Feedback>
+                            <ValidationError>Неверный номер телефона</ValidationError>
+                        </Feedback>
+                    </TextEdit>
+                </Validation>
+            </Field>
+            <Field>
+                <FieldLabel>Идентификатор формы собственности</FieldLabel>
+                <NumericEdit @bind-Value="@FormId"/>
+            </Field>
+            <Field>
+                <FieldLabel>Количество работников</FieldLabel>
+                <NumericEdit @bind-Value="@UpdatedEnterprise.EmployeesNumber"/>
+            </Field>
+            <Field>
+                <FieldLabel>Общая площадь</FieldLabel>
+                <NumericEdit @bind-Value="@UpdatedEnterprise.TotalArea"/>
+            </Field>
+        </CardBody>
+    </Card>
+</EditForm>
+
+@code {
+    [Parameter] public string Id { get; set; } = "";
+
+    private int FormId;
+
+    private int TypeId;
+
+    private EnterpriseDto UpdatedEnterprise { get; set; } = new()
+    {
+        RegistrationNumber = 0,
+        Address = "",
+        EmployeesNumber = 0,
+        Form = null!,
+        Name = "",
+        PhoneNumber = "",
+        TotalArea = 0,
+        Type = null!
+    };
+
+    protected override async Task OnInitializedAsync()
+    {
+        if (!int.TryParse(Id, out var id))
+            throw new Exception("Некорректный идентификатор предприятия");
+        UpdatedEnterprise = await ApiClient.GetEnterprise(id);
+        TypeId = UpdatedEnterprise.Type.Id;
+        FormId = UpdatedEnterprise.Form.Id;
+        await base.OnInitializedAsync();
+    }
+
+    private async Task DeleteEnterpriseAsync()
+    {
+        await ApiClient.DeleteEnterprise(UpdatedEnterprise.RegistrationNumber);
+        await JsRuntime.InvokeVoidAsync("history.back");
+    }
+
+    private async Task UpdateEnterpriseAsync()
+    {
+        UpdatedEnterprise.Type = await ApiClient.GetEnterpriseType(TypeId);
+        UpdatedEnterprise.Form = await ApiClient.GetFormOfOwnership(FormId);
+        await ApiClient.UpdateEnterprise(UpdatedEnterprise);
+    }
+
+}

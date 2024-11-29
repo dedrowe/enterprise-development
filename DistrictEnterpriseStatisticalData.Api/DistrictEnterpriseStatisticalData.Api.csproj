@@ -23,6 +23,7 @@
 
     <ItemGroup>
         <ProjectReference Include="..\DistrictEnterpriseStatisticalData.Domain\DistrictEnterpriseStatisticalData.Domain.csproj"/>
+        <ProjectReference Include="..\DistrictEnterpriseStatisticalData.Dto\DistrictEnterpriseStatisticalData.Dto.csproj"/>
     </ItemGroup>
 
 </Project>

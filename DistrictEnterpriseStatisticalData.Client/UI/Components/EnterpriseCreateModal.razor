@@ -1,0 +1,91 @@
+﻿@using DistrictEnterpriseStatisticalData.Dto.DTO
+@inject ApiClientWrapper ApiClient
+
+<Modal @ref="EnterpriseModal">
+    <ModalContent Centered>
+        <EditForm Model="@NewEnterprise" OnValidSubmit="CreateEnterpriseAsync">
+            <DataAnnotationsValidator/>
+
+            <ModalHeader>
+                <ModalTitle>Новое предприятие</ModalTitle>
+                <CloseButton Clicked="CloseEnterpriseModalAsync"/>
+            </ModalHeader>
+            <Microsoft.AspNetCore.Components.Forms.ValidationSummary/>
+            <ModalBody>
+                <Field>
+                    <FieldLabel>Идентификатор типа предприятия</FieldLabel>
+                    <NumericEdit @bind-Value="@NewEnterprise.EnterpriseTypeId"/>
+                </Field>
+                <Field>
+                    <FieldLabel>Название предприятия</FieldLabel>
+                    <TextEdit @bind-Text="@NewEnterprise.Name"/>
+                </Field>
+                <Field>
+                    <FieldLabel>Адрес</FieldLabel>
+                    <TextEdit @bind-Text="@NewEnterprise.Address"/>
+                </Field>
+                <Field>
+                    <FieldLabel>Номер телефона</FieldLabel>
+                    <Validation UsePattern>
+                        <TextEdit @bind-Text="@NewEnterprise.PhoneNumber"
+                                  Pattern="^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$">
+                            <Feedback>
+                                <ValidationError>Неверный номер телефона</ValidationError>
+                            </Feedback>
+                        </TextEdit>
+                    </Validation>
+                </Field>
+                <Field>
+                    <FieldLabel>Идентификатор формы собственности</FieldLabel>
+                    <NumericEdit @bind-Value="@NewEnterprise.FormId"/>
+                </Field>
+                <Field>
+                    <FieldLabel>Количество работников</FieldLabel>
+                    <NumericEdit @bind-Value="@NewEnterprise.EmployeesNumber"/>
+                </Field>
+                <Field>
+                    <FieldLabel>Общая площадь</FieldLabel>
+                    <NumericEdit @bind-Value="@NewEnterprise.TotalArea"/>
+                </Field>
+            </ModalBody>
+            <ModalFooter>
+                <Button Color="Color.Primary" Type="ButtonType.Submit">Создать</Button>
+            </ModalFooter>
+        </EditForm>
+    </ModalContent>
+</Modal>
+
+@code {
+    [Parameter] public EventCallback OnEnterpriseAdded { get; set; }
+
+    private Modal EnterpriseModal { get; set; } = new();
+
+    private EnterpriseCreateDto NewEnterprise { get; set; } = new()
+    {
+        EnterpriseTypeId = 0,
+        Name = "",
+        Address = "",
+        PhoneNumber = "",
+        FormId = 0,
+        EmployeesNumber = 0,
+        TotalArea = 0
+    };
+
+    public async Task Show()
+    {
+        await EnterpriseModal.Show();
+    }
+
+    private async Task CreateEnterpriseAsync()
+    {
+        await ApiClient.CreateEnterprise(NewEnterprise);
+        await EnterpriseModal.Hide();
+        await OnEnterpriseAdded.InvokeAsync();
+    }
+
+    private async Task CloseEnterpriseModalAsync()
+    {
+        await EnterpriseModal.Hide();
+    }
+
+}

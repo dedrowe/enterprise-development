@@ -1,5 +1,5 @@
-﻿using DistrictEnterpriseStatisticalData.Api.DTO;
-using DistrictEnterpriseStatisticalData.Api.Service;
+﻿using DistrictEnterpriseStatisticalData.Api.Service;
+using DistrictEnterpriseStatisticalData.Dto.DTO;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DistrictEnterpriseStatisticalData.Api.Controller;

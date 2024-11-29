@@ -1,7 +1,7 @@
 ﻿using System.Text.Json.Serialization;
 using DistrictEnterpriseStatisticalData.Domain.Entity;
 
-namespace DistrictEnterpriseStatisticalData.Api.DTO;
+namespace DistrictEnterpriseStatisticalData.Dto.DTO;
 
 /// <summary>
 ///     DTO для поставщиков для каждого типа предприятия и формы собственности

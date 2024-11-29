@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DistrictEnterpriseStatistic
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DistrictEnterpriseStatisticalData.Api", "DistrictEnterpriseStatisticalData.Api\DistrictEnterpriseStatisticalData.Api.csproj", "{8C10DED9-2FF0-4923-AB00-7AA18541E6D9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DistrictEnterpriseStatisticalData.Client", "DistrictEnterpriseStatisticalData.Client\DistrictEnterpriseStatisticalData.Client.csproj", "{45E5A710-DF04-4E5A-824A-5C53AFF9F04D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DistrictEnterpriseStatisticalData.Dto", "DistrictEnterpriseStatisticalData.Dto\DistrictEnterpriseStatisticalData.Dto.csproj", "{5D708F04-85A9-484B-9973-A89D7F823A1B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +34,13 @@ Global
 		{8C10DED9-2FF0-4923-AB00-7AA18541E6D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8C10DED9-2FF0-4923-AB00-7AA18541E6D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8C10DED9-2FF0-4923-AB00-7AA18541E6D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{45E5A710-DF04-4E5A-824A-5C53AFF9F04D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45E5A710-DF04-4E5A-824A-5C53AFF9F04D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45E5A710-DF04-4E5A-824A-5C53AFF9F04D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45E5A710-DF04-4E5A-824A-5C53AFF9F04D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D708F04-85A9-484B-9973-A89D7F823A1B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D708F04-85A9-484B-9973-A89D7F823A1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D708F04-85A9-484B-9973-A89D7F823A1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D708F04-85A9-484B-9973-A89D7F823A1B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

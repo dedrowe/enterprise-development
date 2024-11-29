@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
-using DistrictEnterpriseStatisticalData.Api.DTO;
 using DistrictEnterpriseStatisticalData.Domain.Entity;
 using DistrictEnterpriseStatisticalData.Domain.Repository;
+using DistrictEnterpriseStatisticalData.Dto.DTO;
 
 namespace DistrictEnterpriseStatisticalData.Api.Service;
 

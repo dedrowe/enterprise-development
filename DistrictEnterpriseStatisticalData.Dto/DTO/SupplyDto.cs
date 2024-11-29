@@ -1,12 +1,18 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace DistrictEnterpriseStatisticalData.Api.DTO;
+namespace DistrictEnterpriseStatisticalData.Dto.DTO;
 
 /// <summary>
-///     DTO для создания поставки
+///     DTO поставки
 /// </summary>
-public class SupplyCreateDto
+public class SupplyDto
 {
+    /// <summary>
+    ///     Идентификатор поставки
+    /// </summary>
+    [JsonPropertyName("supply_id")]
+    public int SupplyId { get; set; }
+
     /// <summary>
     ///     Количество поставляемого сырья
     /// </summary>
@@ -23,11 +29,11 @@ public class SupplyCreateDto
     ///     Предприятие, которому осуществлялась поставка
     /// </summary>
     [JsonPropertyName("enterprise_registration_number")]
-    public required int EnterpriseRegistrationNumber { get; set; }
+    public virtual required EnterpriseDto Enterprise { get; set; }
 
     /// <summary>
     ///     Поставщик
     /// </summary>
     [JsonPropertyName("supplier_id")]
-    public required int SupplierId { get; set; }
+    public virtual required SupplierDto Supplier { get; set; }
 }

@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace DistrictEnterpriseStatisticalData.Api.DTO;
+namespace DistrictEnterpriseStatisticalData.Dto.DTO;
 
 /// <summary>
 ///     DTO типа предприятия

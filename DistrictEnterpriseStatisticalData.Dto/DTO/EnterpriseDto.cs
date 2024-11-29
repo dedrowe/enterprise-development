@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace DistrictEnterpriseStatisticalData.Api.DTO;
+namespace DistrictEnterpriseStatisticalData.Dto.DTO;
 
 /// <summary>
 ///     DTO предприятия
@@ -18,6 +18,8 @@ public class EnterpriseDto
     /// </summary>
     [JsonPropertyName("enterprise_type")]
     public virtual required EnterpriseTypeDto Type { get; set; }
+
+    [JsonIgnore] public string TypeName => Type.Type;
 
     /// <summary>
     ///     Наименование
@@ -42,6 +44,8 @@ public class EnterpriseDto
     /// </summary>
     [JsonPropertyName("form_of_ownership")]
     public virtual required FormOfOwnershipDto Form { get; set; }
+
+    [JsonIgnore] public string FormName => Form.Form;
 
     /// <summary>
     ///     Количество работающих

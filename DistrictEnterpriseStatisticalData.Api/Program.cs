@@ -15,6 +15,11 @@ builder.Services.AddSwaggerGen(opt =>
     opt.IncludeXmlComments(path);
 });
 
+builder.Services.AddCors(opt =>
+{
+    opt.AddPolicy("AllowBlazorClient", policy => { policy.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod(); });
+});
+
 builder.Services.AddAutoMapper(typeof(Mapper));
 
 builder.Services.AddDbContext<DistrictDbContext>(options =>
@@ -42,6 +47,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseCors("AllowBlazorClient");
 
 app.UseHttpsRedirection();
 

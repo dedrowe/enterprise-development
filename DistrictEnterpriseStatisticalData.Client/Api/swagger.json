@@ -1,0 +1,1799 @@
+﻿{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "DistrictEnterpriseStatisticalData.Api",
+    "version": "1.0"
+  },
+  "paths": {
+    "/api/enterprise": {
+      "get": {
+        "tags": [
+          "Enterprise"
+        ],
+        "summary": "Получение всех предприятий",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EnterpriseDto"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EnterpriseDto"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EnterpriseDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Enterprise"
+        ],
+        "summary": "Создание предприятия",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EnterpriseCreateDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EnterpriseCreateDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/EnterpriseCreateDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/EnterpriseDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EnterpriseDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EnterpriseDto"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Enterprise"
+        ],
+        "summary": "Обновление информации о предприятии",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EnterpriseDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EnterpriseDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/EnterpriseDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/EnterpriseDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EnterpriseDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EnterpriseDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/enterprise/{id}": {
+      "get": {
+        "tags": [
+          "Enterprise"
+        ],
+        "summary": "Получение предприятия по регистрационному номеру",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/EnterpriseDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EnterpriseDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EnterpriseDto"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Enterprise"
+        ],
+        "summary": "Удаление предприятия",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/EnterpriseDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EnterpriseDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EnterpriseDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/enterprise/five-most-supplied-enterprises": {
+      "get": {
+        "tags": [
+          "Enterprise"
+        ],
+        "summary": "Получение топ 5 предприятий по количеству поставок",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EnterpriseDto"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EnterpriseDto"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EnterpriseDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/enterprise-type": {
+      "get": {
+        "tags": [
+          "EnterpriseType"
+        ],
+        "summary": "Получение всех типов предприятий",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EnterpriseTypeDto"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EnterpriseTypeDto"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EnterpriseTypeDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "EnterpriseType"
+        ],
+        "summary": "Создание типа предприятия",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EnterpriseTypeCreateDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EnterpriseTypeCreateDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/EnterpriseTypeCreateDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/EnterpriseTypeDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EnterpriseTypeDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EnterpriseTypeDto"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "EnterpriseType"
+        ],
+        "summary": "Обновление информации о типе предприятия",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EnterpriseTypeDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EnterpriseTypeDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/EnterpriseTypeDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/EnterpriseTypeDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EnterpriseTypeDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EnterpriseTypeDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/enterprise-type/{id}": {
+      "get": {
+        "tags": [
+          "EnterpriseType"
+        ],
+        "summary": "Получение типа по идентификатору",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/EnterpriseTypeDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EnterpriseTypeDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EnterpriseTypeDto"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "EnterpriseType"
+        ],
+        "summary": "Удаление типа предприятия",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/EnterpriseTypeDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EnterpriseTypeDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EnterpriseTypeDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/form-of-ownership": {
+      "get": {
+        "tags": [
+          "FormOfOwnership"
+        ],
+        "summary": "Получение всех форм",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/FormOfOwnershipDto"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/FormOfOwnershipDto"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/FormOfOwnershipDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "FormOfOwnership"
+        ],
+        "summary": "Создание формы",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FormOfOwnershipCreateDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FormOfOwnershipCreateDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/FormOfOwnershipCreateDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/FormOfOwnershipDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FormOfOwnershipDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FormOfOwnershipDto"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "FormOfOwnership"
+        ],
+        "summary": "Обновление информации о форме",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FormOfOwnershipDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FormOfOwnershipDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/FormOfOwnershipDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/FormOfOwnershipDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FormOfOwnershipDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FormOfOwnershipDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/form-of-ownership/{id}": {
+      "get": {
+        "tags": [
+          "FormOfOwnership"
+        ],
+        "summary": "Получение формы по идентификатору",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/FormOfOwnershipDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FormOfOwnershipDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FormOfOwnershipDto"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "FormOfOwnership"
+        ],
+        "summary": "Удаление форме",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/FormOfOwnershipDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FormOfOwnershipDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FormOfOwnershipDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/supplier": {
+      "get": {
+        "tags": [
+          "Supplier"
+        ],
+        "summary": "Получение всех поставщиков",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SupplierDto"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SupplierDto"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SupplierDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Supplier"
+        ],
+        "summary": "Создание поставщика",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SupplierCreateDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SupplierCreateDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SupplierCreateDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/SupplierDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SupplierDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SupplierDto"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Supplier"
+        ],
+        "summary": "Обновление информации о поставщике",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SupplierDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SupplierDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SupplierDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/SupplierDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SupplierDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SupplierDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/supplier/{id}": {
+      "get": {
+        "tags": [
+          "Supplier"
+        ],
+        "summary": "Получение поставщика по идентификатору",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/SupplierDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SupplierDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SupplierDto"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Supplier"
+        ],
+        "summary": "Удаление поставщика",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/SupplierDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SupplierDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SupplierDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/supplier/supply-between-dates": {
+      "get": {
+        "tags": [
+          "Supplier"
+        ],
+        "summary": "Получение информации о всех поставщиках, поставивших сырье за заданных период, упорядоченных по названию",
+        "parameters": [
+          {
+            "name": "startDate",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date"
+            }
+          },
+          {
+            "name": "endDate",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SupplierDto"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SupplierDto"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SupplierDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/supplier/enterprise-count-for-each-supplier": {
+      "get": {
+        "tags": [
+          "Supplier"
+        ],
+        "summary": "Получение информации о количестве предприятий, с которым работает каждый поставщик",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EnterpriseCountForSupplierDto"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EnterpriseCountForSupplierDto"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EnterpriseCountForSupplierDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/supplier/suppliers-count-for-type-and-form": {
+      "get": {
+        "tags": [
+          "Supplier"
+        ],
+        "summary": "Получение информации о количестве поставщиков для каждого типа отрасли и форме собственности",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SupplierCountForTypeAndFormDto"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SupplierCountForTypeAndFormDto"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SupplierCountForTypeAndFormDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/supplier/max-provided-suppliers": {
+      "get": {
+        "tags": [
+          "Supplier"
+        ],
+        "summary": "Получение информации о поставщиках, поставивших максимальное количество товара за указанный период",
+        "parameters": [
+          {
+            "name": "startDate",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date"
+            }
+          },
+          {
+            "name": "endDate",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SupplierDto"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SupplierDto"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SupplierDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/supply": {
+      "get": {
+        "tags": [
+          "Supply"
+        ],
+        "summary": "Получение всех поставок",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SupplyDto"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SupplyDto"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SupplyDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Supply"
+        ],
+        "summary": "Создание поставки",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SupplyCreateDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SupplyCreateDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SupplyCreateDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/SupplyDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SupplyDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SupplyDto"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Supply"
+        ],
+        "summary": "Обновление информации о поставке",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SupplyDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SupplyDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SupplyDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/SupplyDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SupplyDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SupplyDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/supply/{id}": {
+      "get": {
+        "tags": [
+          "Supply"
+        ],
+        "summary": "Получение поставки по идентификатору",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/SupplyDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SupplyDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SupplyDto"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Supply"
+        ],
+        "summary": "Удаление поставки",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/SupplyDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SupplyDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SupplyDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Enterprise": {
+        "required": [
+          "address",
+          "employeesNumber",
+          "name",
+          "phoneNumber",
+          "totalArea"
+        ],
+        "type": "object",
+        "properties": {
+          "registrationNumber": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "enterpriseTypeId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "type": {
+            "$ref": "#/components/schemas/EnterpriseType"
+          },
+          "name": {
+            "maxLength": 50,
+            "type": "string",
+            "nullable": true
+          },
+          "address": {
+            "maxLength": 50,
+            "type": "string",
+            "nullable": true
+          },
+          "phoneNumber": {
+            "maxLength": 11,
+            "type": "string",
+            "nullable": true
+          },
+          "formId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "form": {
+            "$ref": "#/components/schemas/FormOfOwnership"
+          },
+          "employeesNumber": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalArea": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "supplies": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Supply"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "EnterpriseCountForSupplierDto": {
+        "required": [
+          "enterprise_count",
+          "supplier"
+        ],
+        "type": "object",
+        "properties": {
+          "supplier": {
+            "$ref": "#/components/schemas/SupplierDto"
+          },
+          "enterprise_count": {
+            "type": "integer",
+            "description": "Количество предприятий",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false,
+        "description": "DTO для количества предприятий для каждого поставщика"
+      },
+      "EnterpriseCreateDto": {
+        "required": [
+          "address",
+          "employees_number",
+          "enterprise_type_id",
+          "form_of_ownership_id",
+          "name",
+          "phone_number",
+          "total_area"
+        ],
+        "type": "object",
+        "properties": {
+          "enterprise_type_id": {
+            "type": "integer",
+            "description": "Тип отрасли",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "description": "Наименование",
+            "nullable": true
+          },
+          "address": {
+            "type": "string",
+            "description": "Адрес",
+            "nullable": true
+          },
+          "phone_number": {
+            "type": "string",
+            "description": "Телефон",
+            "nullable": true
+          },
+          "form_of_ownership_id": {
+            "type": "integer",
+            "description": "Форма собственности",
+            "format": "int32"
+          },
+          "employees_number": {
+            "type": "integer",
+            "description": "Количество работающих",
+            "format": "int32"
+          },
+          "total_area": {
+            "type": "integer",
+            "description": "Общая площадь",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false,
+        "description": "DTO для создания предприятия"
+      },
+      "EnterpriseDto": {
+        "required": [
+          "address",
+          "employees_number",
+          "enterprise_type",
+          "form_of_ownership",
+          "name",
+          "phone_number",
+          "total_area"
+        ],
+        "type": "object",
+        "properties": {
+          "registration_number": {
+            "type": "integer",
+            "description": "Регистрационный номер",
+            "format": "int32"
+          },
+          "enterprise_type": {
+            "$ref": "#/components/schemas/EnterpriseTypeDto"
+          },
+          "name": {
+            "type": "string",
+            "description": "Наименование",
+            "nullable": true
+          },
+          "address": {
+            "type": "string",
+            "description": "Адрес",
+            "nullable": true
+          },
+          "phone_number": {
+            "type": "string",
+            "description": "Телефон",
+            "nullable": true
+          },
+          "form_of_ownership": {
+            "$ref": "#/components/schemas/FormOfOwnershipDto"
+          },
+          "employees_number": {
+            "type": "integer",
+            "description": "Количество работающих",
+            "format": "int32"
+          },
+          "total_area": {
+            "type": "integer",
+            "description": "Общая площадь",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false,
+        "description": "DTO предприятия"
+      },
+      "EnterpriseType": {
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "type": {
+            "maxLength": 50,
+            "type": "string",
+            "nullable": true
+          },
+          "enterprises": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Enterprise"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "EnterpriseTypeCreateDto": {
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Тип предприятия",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "DTO для создания типа предприятия"
+      },
+      "EnterpriseTypeDto": {
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Идентификатор",
+            "format": "int32"
+          },
+          "type": {
+            "type": "string",
+            "description": "Тип предприятия",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "DTO типа предприятия"
+      },
+      "FormOfOwnership": {
+        "required": [
+          "form"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "form": {
+            "maxLength": 50,
+            "type": "string",
+            "nullable": true
+          },
+          "enterprises": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Enterprise"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "FormOfOwnershipCreateDto": {
+        "required": [
+          "form"
+        ],
+        "type": "object",
+        "properties": {
+          "form": {
+            "type": "string",
+            "description": "Форма собственности",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "DTO для создания формы собственности"
+      },
+      "FormOfOwnershipDto": {
+        "required": [
+          "form"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Идентификатор",
+            "format": "int32"
+          },
+          "form": {
+            "type": "string",
+            "description": "Форма собственности",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "DTO формы собственности"
+      },
+      "Supplier": {
+        "required": [
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "maxLength": 50,
+            "type": "string",
+            "nullable": true
+          },
+          "supplies": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Supply"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SupplierCountForTypeAndFormDto": {
+        "required": [
+          "enterprise_type",
+          "form_of_property",
+          "supplier_count"
+        ],
+        "type": "object",
+        "properties": {
+          "form_of_property": {
+            "$ref": "#/components/schemas/FormOfOwnership"
+          },
+          "enterprise_type": {
+            "$ref": "#/components/schemas/EnterpriseType"
+          },
+          "supplier_count": {
+            "type": "integer",
+            "description": "Количество поставщиков",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false,
+        "description": "DTO для поставщиков для каждого типа предприятия и формы собственности"
+      },
+      "SupplierCreateDto": {
+        "required": [
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Имя поставщика",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "DTO для создания поставщика"
+      },
+      "SupplierDto": {
+        "required": [
+          "id",
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Идентификатор поставщика",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "description": "Имя поставщика",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "DTO поставщика"
+      },
+      "Supply": {
+        "required": [
+          "date",
+          "quantity"
+        ],
+        "type": "object",
+        "properties": {
+          "supplyId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "quantity": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "date": {
+            "type": "string",
+            "format": "date"
+          },
+          "enterpriseRegistrationNumber": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "enterprise": {
+            "$ref": "#/components/schemas/Enterprise"
+          },
+          "supplierId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "supplier": {
+            "$ref": "#/components/schemas/Supplier"
+          }
+        },
+        "additionalProperties": false
+      },
+      "SupplyCreateDto": {
+        "required": [
+          "date",
+          "enterprise_registration_number",
+          "quantity",
+          "supplier_id"
+        ],
+        "type": "object",
+        "properties": {
+          "quantity": {
+            "type": "integer",
+            "description": "Количество поставляемого сырья",
+            "format": "int32"
+          },
+          "date": {
+            "type": "string",
+            "description": "Дата поставки",
+            "format": "date"
+          },
+          "enterprise_registration_number": {
+            "type": "integer",
+            "description": "Предприятие, которому осуществлялась поставка",
+            "format": "int32"
+          },
+          "supplier_id": {
+            "type": "integer",
+            "description": "Поставщик",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false,
+        "description": "DTO для создания поставки"
+      },
+      "SupplyDto": {
+        "required": [
+          "date",
+          "enterprise_registration_number",
+          "quantity",
+          "supplier_id"
+        ],
+        "type": "object",
+        "properties": {
+          "supply_id": {
+            "type": "integer",
+            "description": "Идентификатор поставки",
+            "format": "int32"
+          },
+          "quantity": {
+            "type": "integer",
+            "description": "Количество поставляемого сырья",
+            "format": "int32"
+          },
+          "date": {
+            "type": "string",
+            "description": "Дата поставки",
+            "format": "date"
+          },
+          "enterprise_registration_number": {
+            "$ref": "#/components/schemas/EnterpriseDto"
+          },
+          "supplier_id": {
+            "$ref": "#/components/schemas/SupplierDto"
+          }
+        },
+        "additionalProperties": false,
+        "description": "DTO поставки"
+      }
+    }
+  }
+}

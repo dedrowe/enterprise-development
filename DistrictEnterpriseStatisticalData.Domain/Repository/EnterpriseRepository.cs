@@ -1,4 +1,5 @@
 ﻿using DistrictEnterpriseStatisticalData.Domain.Entity;
+using Microsoft.EntityFrameworkCore;
 
 namespace DistrictEnterpriseStatisticalData.Domain.Repository;
 
@@ -12,7 +13,7 @@ public class EnterpriseRepository(DistrictDbContext districtDbContext)
     /// </summary>
     public IEnumerable<Enterprise> GetAll()
     {
-        return districtDbContext.Enterprise;
+        return districtDbContext.Enterprise.Include(ent => ent.Type);
     }
 
     /// <summary>
