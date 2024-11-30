@@ -12,6 +12,9 @@
             </ModalHeader>
             <Microsoft.AspNetCore.Components.Forms.ValidationSummary/>
             <ModalBody>
+                <Field TextColor="TextColor.Warning">
+                    <Text>@message</Text>
+                </Field>
                 <Field>
                     <FieldLabel>Идентификатор типа предприятия</FieldLabel>
                     <NumericEdit @bind-Value="@NewEnterprise.EnterpriseTypeId"/>
@@ -60,6 +63,8 @@
 
     private Modal EnterpriseModal { get; set; } = new();
 
+    private string message = "";
+
     private EnterpriseCreateDto NewEnterprise { get; set; } = new()
     {
         EnterpriseTypeId = 0,
@@ -78,6 +83,26 @@
 
     private async Task CreateEnterpriseAsync()
     {
+        try
+        {
+            await ApiClient.GetEnterpriseType(NewEnterprise.EnterpriseTypeId);
+        }
+        catch (Exception)
+        {
+            message = "Введен несуществующий идентификатор типа предприятия";
+            return;
+        }
+
+        try
+        {
+            await ApiClient.GetFormOfOwnership(NewEnterprise.FormId);
+        }
+        catch
+        {
+            message = "Введен несуществующий идентификатор формы собственности";
+            return;
+        }
+        message = "";
         await ApiClient.CreateEnterprise(NewEnterprise);
         await EnterpriseModal.Hide();
         await OnEnterpriseAdded.InvokeAsync();
