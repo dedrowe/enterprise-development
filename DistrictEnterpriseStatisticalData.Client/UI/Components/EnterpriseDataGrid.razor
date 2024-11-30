@@ -89,10 +89,7 @@
 
     private async Task RefreshEnterpriseCollection()
     {
-        foreach (var i in (await ApiClient.GetAllEnterprises()).ToList())
-        {
-            Enterprises = await ApiClient.GetAllEnterprises();
-        }
+        Enterprises = await ApiClient.GetAllEnterprises();
     }
 
     private void OpenEditPageAsync(EnterpriseDto enterprise)
